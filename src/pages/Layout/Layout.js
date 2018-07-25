@@ -3,7 +3,6 @@ import './Layout.css';
 // @Vendors
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 // @Components
 import Header from '../../components/Header/Header';
 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ProductItem from '../../components/ProductItem';
+import CartItem from '../../components/CartItem';
+import './Products.css';
 
 // @Actions
 import productsActions from '../../actions/productsActions';
@@ -19,39 +22,88 @@ class Products extends Component {
 		this.props.addProduct(name, description, price);
 	}
 
+	removeProduct(item){
+		this.props.removeProduct(item);
+	}
+
+	removeAllProducts(){
+		this.props.removeAllProducts();
+	}
+
     render() {
     	const { products, shop } = this.props;
 
-    	// renderProducts es una constante que tiene los productos,
-    	// ver que luego se renderiza abajo de <h1>Productos</h1>
-    	const renderProducts = products.list ? products.list.map((prod, index) => {
+    	const renderProducts = products.list ? products.list.map((products, index) => {
     		return (
-    			// La idea sería crear un componente que maneje la muestra de productos
-    			// Y utilizarlo en lugar de el div <div key={index}>{prod.name}</div> que usa acá
-    			// Por ejemplo <Product name={prod.name} description={prod.description} price={prod.name} />
-    			// y ese componente <Product /> a su vez podría usar otros componentes, por ejemplo
-    			// un componente <ProductHeader> que se encargue de mostrar titulo y precio
-    			<div key={index}>{prod.name} | {prod.description} | {prod.price} | <button onClick={() => {
-    				this.addProduct(prod.name, prod.description, prod.price);
-    			}}>Agregar al carrito</button></div>
+			
+				<ProductItem 
+					index={index} 
+					product={products} 
+					button={<button className='btn btn-primary' onClick={() => {this.addProduct(products.name, products.description, products.price);}}>
+					Agregar al carrito</button>}/>
     		);
     	}) : null;
 
     	// Lo siguiente son los productos agregados al carrito. Lo mismo que el caso anterior,
     	// Mover todo a componentes, identificar y crearlos
     	// Por ejemplo un componente llamado <Orders> que reciba por props los productos
-    	// Podrían crear una acción para quitar el producto del carrito
-    	const orders = shop.orders.length ? shop.orders.map((product, index) => {
+		// Podrían crear una acción para quitar el producto del carrito
+		let total = 0;
+
+		const prices = shop.orders.length ? shop.orders.map((products) => {
     		return (
-    			<div key={index}>{product.name} - ${product.price}</div>
+    			total = total + products.price				
     		);
-    	}) : <p>No hay productos en el carrito</p>;
+		}) : <p></p>;
+
+		const showTotal = shop.orders.length ? `$ ${total}` : <p>No hay productos en el carrito</p>;
+		const removeAll = shop.orders.length ? <button className='btn btn-danger' onClick={() => {this.removeAllProducts();}}>
+		BORRAR TODO</button> : <p></p>;
+		
+
+    	const orders = shop.orders.length ? shop.orders.map((products, index) => {
+    		return (
+    			<CartItem product={products} button={<button className='btn btn-danger' onClick={() => {this.removeProduct(index);}}>
+				BORRAR</button>} />				
+    		);
+		}) : <tr><th>No hay productos en el carrito</th></tr>;
+		
+		
         return (
         	<div>
 	            <h1>Productos</h1>
-	            {renderProducts}
+				<div className='groupOfCards'>
+					{renderProducts}
+				</div>	            
 	            <h1>Carrito</h1>
-	            {orders}
+				<div className='tablesCart'>
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Item</th>
+								<th scope="col">Precio</th>
+								<th scope="col">Borrar</th>
+							</tr>
+						</thead>
+						<tbody>
+						{orders}
+						</tbody>
+					</table>
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Total</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">{showTotal}</th>
+								<th>{removeAll}</th>
+							</tr>						
+						</tbody>
+					</table>					
+				</div>				
             </div>
         );
     }
@@ -69,7 +121,9 @@ export default connect(
             shop: state.shopReducer
         }
     },{
-        addProduct: shopActions.addProduct, // Uso una acción para agregar al carrito
+		addProduct: shopActions.addProduct,
+		removeProduct: shopActions.removeProduct,
+		removeAllProducts: shopActions.removeAllProducts, 
         getProducts: productsActions.getProducts
     }
 )(Products);

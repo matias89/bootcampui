@@ -1,0 +1,17 @@
+.groupOfCards{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 20px 0;
+}
+.tr{
+   width: 50px;
+}
+
+.tablesCart{
+    display: flex
+}
+.tablesCart table{
+    margin: 0 10px;
+}
