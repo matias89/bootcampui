@@ -5,6 +5,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // @Components
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer';
 
 class Layout extends React.Component {
 
@@ -21,9 +22,10 @@ class Layout extends React.Component {
                         }]
                     }
                 />
-                <div className="main container">
+                <div className="main">
                     {this.props.children}
                 </div>
+                <Footer />
             </div>
         );
     }

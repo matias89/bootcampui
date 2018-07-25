@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ProductItem from '../../components/ProductItem';
 import productsActions from '../../actions/productsActions';
+import Carousel from '../../components/Carousel';
+import CarouselItem from '../../components/Carousel/CarouselItem';
 import './Home.css'
 
 class Home extends Component {
@@ -23,6 +25,11 @@ class Home extends Component {
                 button={<NavLink to='/products' className='btn btn-primary'>Ver mas</NavLink>}/>
             )}
         }
+        const renderCarousel = products.list ? products.list.map((products, index) => {
+                if(products.category === 'cerveza'){
+                    return <CarouselItem product={products} index={index} />
+                };    		
+    	}) : null;
 
         const renderProducts = products.list ? products.list.map((products, index) => {
     		return highlights(products, index);
@@ -30,8 +37,11 @@ class Home extends Component {
 
         return (
         	<div>
-	            <h1>Pantalla principal</h1>
-	            <p>Esta es la pantalla de bienvenida, hacer cualquier cosa que se les ocurra acá.</p>
+	            <h1>Proba nuestras Cervezas!</h1>
+                <div>
+                    <Carousel items={renderCarousel} />
+                </div>
+                <h1>Productos Destacados</h1>
                 <div className='highlights'>
                     {renderProducts}
                 </div>

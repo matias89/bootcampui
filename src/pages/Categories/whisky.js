@@ -9,7 +9,7 @@ import './Products.css';
 import productsActions from '../../actions/productsActions';
 import shopActions from '../../actions/shopActions';
 
-class Products extends Component {
+class Whisky extends Component {
 
 	componentDidMount() {
 		// Este getProducts debería conectarse a un servicio y traer de ahi los productos
@@ -35,11 +35,12 @@ class Products extends Component {
 		const { products, shop } = this.props;
 
 		const renderProducts = products.list ? products.list.map((products, index) => {
-    		return (<ProductItem 
+    		if(products.category === 'whisky'){
+                return (<ProductItem 
 				index={index} 
 				product={products} 
 				button={<button className='btn btn-primary' onClick={() => {this.addProduct(products.name, products.description, products.price);}}>
-				Agregar al carrito</button>}/>);
+				Agregar al carrito</button>}/>)};
 		}) : null;
 		
 	   	// Lo siguiente son los productos agregados al carrito. Lo mismo que el caso anterior,
@@ -72,8 +73,8 @@ class Products extends Component {
 					<div className='col-12 col-sm-2'>
 						<div class="card text-white bg-dark mb-3">
 							<div class="card-header">Categorias</div>
-							<div class="card-body">
-								<CategoryNav />	
+							<div class="card-body">								
+                                <CategoryNav />								
 							</div>
 						</div>
 						
@@ -136,4 +137,4 @@ export default connect(
 		removeAllProducts: shopActions.removeAllProducts, 
         getProducts: productsActions.getProducts
     }
-)(Products);
+)(Whisky);
