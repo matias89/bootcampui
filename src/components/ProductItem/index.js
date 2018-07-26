@@ -3,7 +3,7 @@ import './ProductItem.css'
 
 export default function ProductItem(props) { //<img className="card-img-top" src=".../100px180/" alt="Card image cap" />
     return <div key={props.index} className="card cards">
-            <img className="card-img-top"
+            <img className="card-img-top imageStyle"
                 src={`/assets/${props.product.image}`}
                 alt=""
                 />        

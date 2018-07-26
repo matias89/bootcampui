@@ -19,6 +19,9 @@ class Layout extends React.Component {
                         },{
                             title: 'Productos',
                             path: '/products'
+                        },{
+                            title: 'Carrito',
+                            path: '/cart'
                         }]
                     }
                 />

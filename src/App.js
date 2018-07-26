@@ -12,6 +12,7 @@ import store from './store';
 import Layout from './pages/Layout/Layout';
 import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
+import Cart from './pages/Cart';
 import Cervezas from './pages/Categories/cerveza';
 import Fernet from './pages/Categories/fernet';
 import Whisky from './pages/Categories/whisky';
@@ -27,6 +28,7 @@ class App extends Component {
                     <Layout>
                         <Route path="/" exact component={ Home } />
                         <Route path="/products" component={ Products } />
+                        <Route path="/cart" component={ Cart } />
                         <Route path="/cervezas" component={ Cervezas } />
                         <Route path="/fernet" component={ Fernet } />
                         <Route path="/whisky" component={ Whisky } />
