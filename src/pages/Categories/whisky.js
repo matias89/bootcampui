@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ProductItem from '../../components/ProductItem';
+import CartItem from '../../components/CartItem';
 import CategoryNav from '../../components/CategoryNav';
 import './Products.css';
 
@@ -9,7 +10,7 @@ import './Products.css';
 import productsActions from '../../actions/productsActions';
 import shopActions from '../../actions/shopActions';
 
-class Products extends Component {
+class Whisky extends Component {
 
 	componentDidMount() {
 		this.props.getProducts();
@@ -24,13 +25,14 @@ class Products extends Component {
 		const { products, shop } = this.props;
 
 		const renderProducts = products.list ? products.list.map((products, index) => {
-    		return (<ProductItem 
+    		if(products.category === 'whisky'){
+                return (<ProductItem 
 				index={index} 
 				product={products} 
 				button={<button className='btn btn-primary' onClick={() => {this.addProduct(products.name, products.description, products.price);}}>
-				Agregar al carrito</button>}/>);
+				Agregar al carrito</button>}/>)};
 		}) : null;
-
+		
 		const orders = shop.orders.length;
 
 		const areOrders = (orders) => {
@@ -75,8 +77,6 @@ export default connect(
         }
     },{
 		addProduct: shopActions.addProduct,
-		removeProduct: shopActions.removeProduct,
-		removeAllProducts: shopActions.removeAllProducts, 
         getProducts: productsActions.getProducts
     }
-)(Products);
+)(Whisky);

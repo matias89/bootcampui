@@ -9,7 +9,7 @@ import './Products.css';
 import productsActions from '../../actions/productsActions';
 import shopActions from '../../actions/shopActions';
 
-class Products extends Component {
+class Fernet extends Component {
 
 	componentDidMount() {
 		this.props.getProducts();
@@ -24,11 +24,12 @@ class Products extends Component {
 		const { products, shop } = this.props;
 
 		const renderProducts = products.list ? products.list.map((products, index) => {
-    		return (<ProductItem 
+    		if(products.category === 'fernet'){
+                return (<ProductItem 
 				index={index} 
 				product={products} 
 				button={<button className='btn btn-primary' onClick={() => {this.addProduct(products.name, products.description, products.price);}}>
-				Agregar al carrito</button>}/>);
+				Agregar al carrito</button>}/>)};
 		}) : null;
 
 		const orders = shop.orders.length;
@@ -79,4 +80,4 @@ export default connect(
 		removeAllProducts: shopActions.removeAllProducts, 
         getProducts: productsActions.getProducts
     }
-)(Products);
+)(Fernet);

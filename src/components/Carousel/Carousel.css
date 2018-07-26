@@ -1,0 +1,14 @@
+.carouselProperties{
+    width: 100%;
+    height: 500px;
+    margin: 40px 0;
+}
+.itemss{
+    height: 100%;
+}
+.carousel-caption{
+    background: rgba(0, 0, 0, .5);
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 30px;
+}

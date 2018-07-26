@@ -9,4 +9,14 @@ const addProduct = (name, description, price) => ({
 	}
 });
 
-export default { addProduct };
+const removeProduct = (item) => ({
+	type: actionTypes.SHOP_REMOVE_PRODUCT,
+	payload: item
+});
+
+const removeAllProducts = (item) => ({
+	type: actionTypes.SHOP_REMOVEALL_PRODUCT,
+	payload: item
+});
+
+export default { addProduct, removeProduct, removeAllProducts };

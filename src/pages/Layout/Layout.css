@@ -1,11 +1,15 @@
-body, html {
-  height: 100%; }
+body, html {  
+  height: 100%;
+ }
 
 .main {
+  margin: 0 auto;
   background: #FFF;
   min-height: 100%;
+  width: 90%;
   padding-top: 90px;
   padding-bottom: 10px; }
 
-.layout {
-  height: 100vh; }
+.layout {  
+  height: 70vh;
+ }

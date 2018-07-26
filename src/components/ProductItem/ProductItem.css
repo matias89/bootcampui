@@ -1,0 +1,34 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.cards{
+    width: 18rem;
+    margin: 15px 0 15px 10px;
+    transition: all 1s;
+}
+.cards:hover{
+    transform: scale(1.06);
+    z-index: 44;
+}
+.imageStyle{
+    height: 215px;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#343a40;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 50;
+}
+.float:hover {
+    color: aquamarine;
+}
+.my-float{
+	margin-top:22px;
+}

@@ -1,0 +1,40 @@
+.groupOfCards{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 20px 0;
+}
+.tr{
+   width: 50px;
+}
+
+.tablesCart{
+    display: flex
+}
+.tablesCart table{
+    margin: 0 10px;
+}
+.products{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 0 20px;
+    margin-left: 75px;
+}
+
+.itemColorNav li a{
+    color: white;
+}
+.categoryBox{
+    margin-top: 82px;
+}
+
+@media only screen and (max-width: 763px){
+    .products{
+        flex-wrap: wrap;
+    }
+    .categoryBox{
+        margin-top: 0;
+    }
+}
