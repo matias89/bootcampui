@@ -13,11 +13,8 @@ import shopActions from '../../actions/shopActions';
 class Gaseosas extends Component {
 
 	componentDidMount() {
-		// Este getProducts debería conectarse a un servicio y traer de ahi los productos
-		// Para nuestro jemeplo, los productos están hardcodeados (puestos a mano) en el reducer
-		// Si quieren agregar o modificar productos, lo hacen directamente desde el reducer
 		this.props.getProducts();
-		// Dejo este getProducts aquí como ejemplo de donde debería llamarse para traer la información desde un servicio
+		window.scrollTo(0, 0);
 	}
 
 	addProduct(name, description, price) {
@@ -44,10 +41,6 @@ class Gaseosas extends Component {
 				Agregar al carrito</button>}/>)};
 		}) : null;
 		
-	   	// Lo siguiente son los productos agregados al carrito. Lo mismo que el caso anterior,
-    	// Mover todo a componentes, identificar y crearlos
-    	// Por ejemplo un componente llamado <Orders> que reciba por props los productos
-		// Podrían crear una acción para quitar el producto del carrito
 		const orders = shop.orders.length;
 
 		const areOrders = (orders) => {
@@ -84,15 +77,10 @@ class Gaseosas extends Component {
     }
 }
 
-/*
-connect conecta la aplicación al store. Permite agregar datos y funciones a 
-las props.
-*/
-
 export default connect(
     state => {
         return {
-            products: state.productsReducer, // Saco los productos del reducer
+            products: state.productsReducer,
             shop: state.shopReducer
         }
     },{

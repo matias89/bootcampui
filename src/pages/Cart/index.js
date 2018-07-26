@@ -7,6 +7,10 @@ import './Cart.css';
 
 class Cart extends Component {
 
+	componentDidMount(){
+		window.scrollTo(0, 0);
+	}
+
     removeProduct(item) {
         this.props.removeProduct(item);
     }
@@ -38,7 +42,6 @@ class Cart extends Component {
 				BORRAR</button>} />				
 			);
 		}) : <tr><th>No hay productos en el carrito</th></tr>;
-
         
         return (
         	<div className="container">                

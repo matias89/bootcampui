@@ -10,7 +10,8 @@ import './Home.css'
 class Home extends Component {
 
     componentDidMount() {
-		this.props.getProducts();
+        this.props.getProducts();
+        window.scrollTo(0, 0);
     }
     
     render() {
@@ -55,7 +56,7 @@ class Home extends Component {
 export default connect(
     state => {
         return {
-            products: state.productsReducer, // Saco los productos del reducer
+            products: state.productsReducer,
         }
     },{
         getProducts: productsActions.getProducts

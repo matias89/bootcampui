@@ -14,6 +14,7 @@ class Whisky extends Component {
 
 	componentDidMount() {
 		this.props.getProducts();
+		window.scrollTo(0, 0);
 	}
 
 	addProduct(name, description, price) {
@@ -32,10 +33,6 @@ class Whisky extends Component {
 				Agregar al carrito</button>}/>)};
 		}) : null;
 		
-	   	// Lo siguiente son los productos agregados al carrito. Lo mismo que el caso anterior,
-    	// Mover todo a componentes, identificar y crearlos
-    	// Por ejemplo un componente llamado <Orders> que reciba por props los productos
-		// Podrían crear una acción para quitar el producto del carrito
 		const orders = shop.orders.length;
 
 		const areOrders = (orders) => {
@@ -72,15 +69,10 @@ class Whisky extends Component {
     }
 }
 
-/*
-connect conecta la aplicación al store. Permite agregar datos y funciones a 
-las props.
-*/
-
 export default connect(
     state => {
         return {
-            products: state.productsReducer, // Saco los productos del reducer
+            products: state.productsReducer,
             shop: state.shopReducer
         }
     },{

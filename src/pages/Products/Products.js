@@ -13,6 +13,7 @@ class Products extends Component {
 
 	componentDidMount() {
 		this.props.getProducts();
+		window.scrollTo(0, 0);
 	}
 
 	addProduct(name, description, price) {
@@ -37,7 +38,7 @@ class Products extends Component {
 				return <span class="badge badge-pill badge-danger">{orders}</span>;
 			}
 		}
-	
+		
         return (
         	<div>
 				<NavLink to='/cart' className='float'>
@@ -69,7 +70,7 @@ class Products extends Component {
 export default connect(
     state => {
         return {
-            products: state.productsReducer, // Saco los productos del reducer
+            products: state.productsReducer,
             shop: state.shopReducer
         }
     },{

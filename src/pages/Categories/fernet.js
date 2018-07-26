@@ -13,6 +13,7 @@ class Fernet extends Component {
 
 	componentDidMount() {
 		this.props.getProducts();
+		window.scrollTo(0, 0);
 	}
 
 	addProduct(name, description, price) {
@@ -67,15 +68,10 @@ class Fernet extends Component {
     }
 }
 
-/*
-connect conecta la aplicación al store. Permite agregar datos y funciones a 
-las props.
-*/
-
 export default connect(
     state => {
         return {
-            products: state.productsReducer, // Saco los productos del reducer
+            products: state.productsReducer,
             shop: state.shopReducer
         }
     },{
