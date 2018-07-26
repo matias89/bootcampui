@@ -1,0 +1,12 @@
+#card{
+  border:2px solid #fff;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  background: #fff;
+}
+#imgBeer{
+  border:2px solid #eee;
+  margin: 5px;
+  padding: 2px;
+}
