@@ -36,7 +36,7 @@ class Home extends Component {
     	}) : null;
 
         return (
-        	<div>
+        	<div className='container'>
 	            <h1>Probá nuestras cervezas!</h1>
                 <hr/>
                 <div>

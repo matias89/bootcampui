@@ -2,7 +2,7 @@ import React from 'react';
 import './Carousel.css';
 
 const Carousel = (props) => {
-    return <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    return <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="2000">
     <div class="carousel-inner carouselProperties">
       {props.items}      
     </div>
