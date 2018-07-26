@@ -37,11 +37,13 @@ class Home extends Component {
 
         return (
         	<div>
-	            <h1>Proba nuestras Cervezas!</h1>
+	            <h1>Probá nuestras cervezas!</h1>
+                <hr/>
                 <div>
                     <Carousel items={renderCarousel} />
                 </div>
                 <h1>Productos Destacados</h1>
+                <hr/>
                 <div className='highlights'>
                     {renderProducts}
                 </div>

@@ -10,14 +10,14 @@ const initialState = {
         category: 'cerveza'
     },{
         name: 'Cerveza Quilmes',
-        description: 'La cerveza de siempre, exponsor oficial de la Seleccion Argentina. ',
+        description: 'La cerveza de siempre, Sponsor oficial de la Selección Argentina. ',
         image: 'quilmes.jpg',
         price: 35,
         highlights: true,
         category: 'cerveza'
     },{
         name: 'Cerveza Corona',
-        description: 'Ideal bien fria con limon. ',
+        description: 'Ideal bien fría con limón. ',
         image: 'corona.jpg',
         price: 60,
         highlights: false,
@@ -38,7 +38,7 @@ const initialState = {
         category: 'fernet'
     },{
         name: 'Fernet Vittone',
-        description: 'Para cuando te queres suicidar, seguro revienta el higado. ',
+        description: 'Para cuando te queres suicidar, seguro revienta el hígado. ',
         image: 'vittone.jpg',
         price: 15,
         highlights: false,

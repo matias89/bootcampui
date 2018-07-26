@@ -19,14 +19,6 @@ class Products extends Component {
 		this.props.addProduct(name, description, price);
 	}
 
-	removeProduct(item){
-		this.props.removeProduct(item);
-	}
-
-	removeAllProducts(){
-		this.props.removeAllProducts();
-	}
-
     render() {
 		const { products, shop } = this.props;
 

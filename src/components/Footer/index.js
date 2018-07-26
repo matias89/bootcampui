@@ -10,8 +10,9 @@ export default function Footer(){
 				    <div className="col-xs-12 col-sm-3 col-md-3">
                         <h5>Menu</h5>
                         <ul className="list-unstyled quick-links">
-                            <li><a href="/"><i className="fa fa-angle-double-right"></i>Inicio</a></li>
+                        <li><NavLink to='/'><i className="fa fa-angle-double-right"></i>Inicio</NavLink></li>
                             <li><NavLink to='/products'><i className="fa fa-angle-double-right"></i>Productos</NavLink></li>
+                            <li><NavLink to='/cart'><i className="fa fa-angle-double-right"></i>Carrito</NavLink></li>
                         </ul>
 				    </div>
                     <div className="col-xs-12 col-sm-3 col-md-3">
