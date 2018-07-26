@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CartItem from '../../components/CartItem';
+import Modal from '../../components/Modal';
 import productsActions from '../../actions/productsActions';
 import shopActions from '../../actions/shopActions';
 import './Cart.css';
@@ -33,8 +34,12 @@ class Cart extends Component {
 		}) : <p></p>;
 
 		const showTotal = shop.orders.length ? `$ ${total}` : <p>No hay productos en el carrito</p>;
-		const removeAll = shop.orders.length ? <button className='btn btn-danger' onClick={() => {this.removeAllProducts();}}>
-		BORRAR TODO</button> : <p></p>;
+
+		const removeAll = shop.orders.length ? <button className='btn btn-danger' onClick={() => {this.removeAllProducts();}}> 
+		BORRAR TODO</button>  : <p></p>;
+
+		const checkOut = shop.orders.length ? <button type="button" class="btn btn-primary checkOut" data-toggle="modal" data-target="#exampleModalCenter">PAGAR</button>
+		  : <p></p>;
 		
 		const orders = shop.orders.length ? shop.orders.map((products, index) => {
     		return (
@@ -42,39 +47,49 @@ class Cart extends Component {
 				BORRAR</button>} />				
 			);
 		}) : <tr><th>No hay productos en el carrito</th></tr>;
+
+		const ordersCheckout = shop.orders.length ? shop.orders.map((products, index) => {
+    		return (				
+				<li>{`Item: `}<b>{`${products.name}`}</b>{` Precio: `}<b>{`$${products.price}`}</b></li>				
+			);
+		}) : <tr><th>No hay productos en el carrito</th></tr>;
         
         return (
         	<div className="container">                
 	            <h1>Carrito</h1>
                 <div>
-                <div className='tablesCart'>
-					<table class="table">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">Item</th>
-								<th scope="col">Precio</th>
-								<th scope="col">Borrar</th>
-							</tr>
-						</thead>
-						<tbody>
-						{orders}
-						</tbody>
-					</table>
-					<table class="table">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">Total</th>
-								<th scope="col"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">{showTotal}</th>
-								<th>{removeAll}</th>
-							</tr>						
-						</tbody>
-					</table>					
-				</div>
+					<div className='tablesCart'>
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Item</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Borrar</th>
+								</tr>
+							</thead>
+							<tbody>
+							{orders}
+							</tbody>
+						</table>
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Total</th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">{showTotal}</th>
+									<th>
+										{checkOut}
+										{removeAll}
+									</th>
+								</tr>						
+							</tbody>
+						</table>					
+					</div>
+					<Modal title={'CheckOut'} orders={ordersCheckout} total={total} />
                 </div>                
             </div>
         );
