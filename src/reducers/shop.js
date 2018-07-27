@@ -6,11 +6,23 @@ const initialState = {
 
 const shopReducer = (state = initialState, action) => {
 
-    switch(action.type) {
+    switch (action.type) {
         case actionTypes.SHOP_ADD_PRODUCT: {
             return Object.assign({}, state, {
                 orders: [...state.orders, action.payload]
             });
+        }
+        case actionTypes.SHOP_REMOVE_PRODUCT: {
+            return {
+                orders: [
+                    ...state.orders.slice(0, action.payload),
+                    ...state.orders.slice(action.payload + 1)
+
+                ]
+            };
+        }
+        case actionTypes.SHOP_REMOVE_ALL_PRODUCT: {
+            return initialState
         }
 
         default:
