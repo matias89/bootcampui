@@ -52,6 +52,8 @@ class Products extends Component {
 	            {renderProducts}
 	            <h1>Carrito</h1>
 	            {orders}
+                <h3>{shop.total}</h3>
+                <button onClick={this.props.clearShop}>Vaciaaaaa</button>
             </div>
         );
     }
@@ -70,6 +72,7 @@ export default connect(
         }
     },{
         addProduct: shopActions.addProduct, // Uso una acción para agregar al carrito
-        getProducts: productsActions.getProducts
+        getProducts: productsActions.getProducts,
+        clearShop: shopActions.clearShop
     }
 )(Products);
