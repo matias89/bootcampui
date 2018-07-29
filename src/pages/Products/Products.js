@@ -33,15 +33,15 @@ class Products extends Component {
 
 		const renderProducts = products.list ? products.list.map((prod, index) => {
 			return (
-				<div key={index}>{prod.name} | {prod.description} | {prod.stat} | {prod.price} | <button onClick={() => {
-					this.addProduct(prod.name, prod.price);
+				<div key={index}><img height={100} title={prod.name} src={prod.img} /> {prod.name} | {prod.description} | {prod.stat} | {prod.price} |  <button class="btn btn-success" onClick={() => {
+					this.addProduct(prod.name, prod.price, prod.img);
 				}}>Agregar al carrito</button></div>
 			);
 		}) : null;
 
 		const orders = shop.orders.length ? shop.orders.map((product, index) => {
 			return (
-				<div key={index}>{product.name} = ${product.price}<button onClick={() => { this.removeProduct(index) }}>quitar</button></div>
+				<div key={index}><img height={50} title={product.name} src={product.img} /> ${product.price}<button className="btn btn-warning" onClick={() => { this.removeProduct(index) }}>quitar</button></div>
 			);
 		}) : <p>No hay productos en el carrito</p>;
 		return (
@@ -50,7 +50,8 @@ class Products extends Component {
 				{renderProducts}
 				<h1>Carrito</h1>
 				{orders}
-				<button onClick={() => { this.removeAllProduct(); }}> Quitar Todo </button>
+				<h3>Total: ${shop.total}</h3>
+				<button class="btn btn-danger" onClick={() => { this.removeAllProduct(); }}> Quitar Todo </button>
 			</div>
 		);
 
