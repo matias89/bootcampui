@@ -1,0 +1,103 @@
+#cartTotal{
+  margin: 5px 5px;
+  padding: 5px;
+}
+
+#cartB1{
+  margin: 5px 5px 5px 20px;
+  padding: 5px; 
+  width: 100px;  
+}
+
+#cartB2{
+  margin: 5px 5px 5px 10px;
+  padding: 5px; 
+  width: 150px;
+}
+
+#total{
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+@media (min-width: 1200px){
+  #cartB2{
+    width: 250px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 906px) {
+  #cartTotal{
+    margin: 5px 5px;
+    padding: 5px;
+  }
+
+  #cartB1{
+    margin: 4px 4px 4px 20px;
+    padding: 5px; 
+    width: 80px;  
+  }
+
+  #cartB2{
+    margin: 4px 4px 4px 10px;
+    padding: 5px; 
+    width: 100px;
+  }
+
+  #total{
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 600px){
+  #cartTotal{
+    margin: 5px 5px;
+    padding: 5px;
+  }
+
+  #cartB1{
+    margin: 4px 4px 4px 20px;
+    padding: 5px; 
+    width: 80px;  
+  }
+
+  #cartB2{
+    margin: 4px 4px 4px 10px;
+    padding: 5px; 
+    width: 100px;
+  }
+
+  #total{
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+  #cartTotal{
+    margin: 1px 1px;
+    padding: 1px; 
+  }
+
+  #cartB1{
+    margin: 3px 3px 3px 3px;
+    padding: 1px; 
+    width: 50px;  
+  }
+
+  #cartB2{
+    margin: 2px 2px 2px 3px;
+    padding: 1px; 
+    width: 50px;
+  }
+
+  #total{
+    font-weight: bold;
+    margin: 2px 2px;
+    font-size: 20px;
+  }
+}

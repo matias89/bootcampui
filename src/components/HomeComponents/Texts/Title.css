@@ -1,0 +1,74 @@
+#title{
+  color: gold;
+  text-align: center;
+  margin-bottom: 70px;
+  text-decoration-line: underline;
+  font-size: 87px;
+  font-family: 'Merienda', cursive;
+  font-weight: bold;
+  background-image: url(https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg);
+  background-size: cover;
+  height: 450px;
+  border-radius: 10px;  
+}
+
+@media (min-width: 907px) and (max-width: 1200px) {
+  #title {
+    background: url(https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg);
+    background-position: center top;
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 906px) {
+  #title {
+    background: url(https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg);
+    background-position: center top;
+    font-size: 75px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 600px){
+  #title {      
+     background: url(https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg);
+     background-position: center top;
+     font-size: 75px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+  #title {      
+     background: url(https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg);
+     background-position: center top;
+     background-size: contain cover;
+     font-size: 45px;
+  }
+}
+
+#title:hover{
+  transition: 500ms;
+  transform: scale(1.01);
+  color: #C04800;
+  background-size: cover;
+  background-image: url(http://www.oursanmarcos.com/wp-content/uploads/2015/04/San-Marcos-Craft-Beer-810x421.jpg);  
+}
+
+#barTitle{
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px;
+  width: 80%;
+}
+
+#barTitle:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}

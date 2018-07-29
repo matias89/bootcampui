@@ -1,12 +1,20 @@
 import actionTypes from '../constants/actionTypes';
 
-const addProduct = (name, description, price) => ({
+const addProduct = (name, price) => ({
 	type: actionTypes.SHOP_ADD_PRODUCT,
 	payload: {
 		name,
-		description,
 		price
 	}
 });
 
-export default { addProduct };
+const clearShop = () => ({
+  type: actionTypes.SHOP_CLEAR
+});
+
+const deleteProduct = (index) => ({
+  type: actionTypes.SHOP_DELETE_PRODUCT,
+  payload: index
+});
+
+export default { addProduct, clearShop, deleteProduct };

@@ -3,9 +3,9 @@ import './Layout.css';
 // @Vendors
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 // @Components
 import Header from '../../components/Header/Header';
+import Footer from '../../components/HomeComponents/Footer/Footer';
 
 class Layout extends React.Component {
 
@@ -19,12 +19,19 @@ class Layout extends React.Component {
                         },{
                             title: 'Productos',
                             path: '/products'
+                        },{
+                            title: 'Q&A',
+                            path: '/Questions/QA'
+                        },{
+                            title: 'Register',
+                            path: '/Form/Form'
                         }]
                     }
                 />
                 <div className="main container">
-                    {this.props.children}
+                    {this.props.children}                    
                 </div>
+                <Footer />
             </div>
         );
     }

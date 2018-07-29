@@ -1,0 +1,78 @@
+#card{
+  width: 300px;
+  margin: 5px;
+}
+
+#beerImg{
+  width: 180px;
+  margin-left: 60px;
+}
+
+#name{
+  text-align: center;
+  padding: 10px;
+}
+
+#price{
+  padding: 10px;
+}
+
+#description{
+  padding: 10px;
+}
+
+@media (min-width: 481px) and (max-width: 960px){
+  #card{
+    width: 250px;
+    margin: 2px;
+  }
+
+  #beerImg{
+    width: 120px;
+    margin-left: 65px;
+  }
+
+  #name{
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  #price{
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  #description{
+    padding: 5px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+  #card{
+    width: 200px;
+    margin: 2px;
+  }
+
+  #beerImg{
+    width: 120px;
+    margin-left: 40px;
+  }
+
+  #name{
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  #price{
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  #description{
+    padding: 5px;
+    font-size: 15px;
+  }
+}
