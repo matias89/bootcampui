@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 // @Actions
 import productsActions from '../../actions/productsActions';
 import shopActions from '../../actions/shopActions';
@@ -8,15 +7,11 @@ import shopActions from '../../actions/shopActions';
 class Products extends Component {
 
 	componentDidMount() {
-		// Este getProducts debería conectarse a un servicio y traer de ahi los productos
-		// Para nuestro jemeplo, los productos están hardcodeados (puestos a mano) en el reducer
-		// Si quieren agregar o modificar productos, lo hacen directamente desde el reducer
 		this.props.getProducts();
-		// Dejo este getProducts aquí como ejemplo de donde debería llamarse para traer la información desde un servicio
 	}
 
-	addProduct(name, price) {
-		this.props.addProduct(name, price);
+	addProduct(name, price, img) {
+		this.props.addProduct(name, price, img);
 	}
 
 	removeAllProduct() {
@@ -33,9 +28,19 @@ class Products extends Component {
 
 		const renderProducts = products.list ? products.list.map((prod, index) => {
 			return (
-				<div key={index}><img height={100} title={prod.name} src={prod.img} /> {prod.name} | {prod.description} | {prod.stat} | {prod.price} |  <button class="btn btn-success" onClick={() => {
-					this.addProduct(prod.name, prod.price, prod.img);
-				}}>Agregar al carrito</button></div>
+				<div key={index} class="card border-success mb-3">
+					<img class='card-img-top' src={prod.img} stlye={{ width: '200px', height: '150px' }} />
+					<div class='card-body text center'>
+						<h3 class='card-title'>{prod.name}  ${prod.price}</h3>
+						<p>{prod.description} <br /><h6>Stats: {prod.stat}</h6> <br />
+						</p>
+						<div class="card-footer bg-transparent border-success">
+							<button class="btn btn-info" onClick={() => {
+								this.addProduct(prod.name, prod.price, prod.img);
+							}}>Agregar al carrito</button>
+						</div>
+					</div>
+				</div>
 			);
 		}) : null;
 
@@ -46,12 +51,13 @@ class Products extends Component {
 		}) : <p>No hay productos en el carrito</p>;
 		return (
 			<div>
-				<h1>Productos</h1>
-				{renderProducts}
+				<div class='card-deck'>
+					{renderProducts}
+				</div>
 				<h1>Carrito</h1>
 				{orders}
-				<h3>Total: ${shop.total}</h3>
 				<button class="btn btn-danger" onClick={() => { this.removeAllProduct(); }}> Quitar Todo </button>
+				<button class="btn btn-success" onClick={() => alert('En este momento no estamos recibiendo pedidos')}>Pagar ${shop.total}</button>
 			</div>
 		);
 
@@ -65,11 +71,11 @@ class Products extends Component {
 export default connect(
 	state => {
 		return {
-			products: state.productsReducer, // Saco los productos del reducer
+			products: state.productsReducer,
 			shop: state.shopReducer
 		}
 	}, {
-		addProduct: shopActions.addProduct, // Uso una acción para agregar al carrito
+		addProduct: shopActions.addProduct,
 		getProducts: productsActions.getProducts,
 		removeAllProduct: shopActions.removeAllProduct,
 		removeProduct: shopActions.removeProduct

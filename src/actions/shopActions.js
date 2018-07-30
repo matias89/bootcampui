@@ -1,10 +1,11 @@
 import actionTypes from '../constants/actionTypes';
 
-const addProduct = (name, price) => ({
+const addProduct = (name, price, img) => ({
 	type: actionTypes.SHOP_ADD_PRODUCT,
 	payload: {
 		name,
-		price
+		price,
+		img
 	}
 });
 

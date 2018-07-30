@@ -5,18 +5,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const generateRoute = (title, path, component, onClick) => {
-    if(!!path) {
+    if (!!path) {
         return (
-            <Link className="nav-link" to={ path }>{ component ? component : title }</Link>
+            <Link className="nav-link" to={path}>{component ? component : title}</Link>
         );
     }
     else {
         return (
             <a
                 className="nav-link"
-                onClick={ onClick }
+                onClick={onClick}
             >
-                { component ? component : title }
+                {component ? component : title}
             </a>
         );
     }
@@ -34,8 +34,8 @@ const Header = (props) => {
                     <ul className="navbar-nav">
                         {props.routes.map((route, index) => {
                             return (
-                                <li className={`nav-item ${route.className}`} key={ index }>
-                                    { generateRoute(route.title, route.path, route.component, route.onClick) }
+                                <li className={`nav-item ${route.className}`} key={index}>
+                                    {generateRoute(route.title, route.path, route.component, route.onClick)}
                                 </li>
                             );
                         })}
