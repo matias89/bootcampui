@@ -29,7 +29,9 @@ class Home extends Component {
         const renderCarousel = products.list ? products.list.map((products, index) => {
                 if(products.category === 'cerveza'){
                     return <CarouselItem product={products} index={index} />
-                };    		
+                }else{
+                    return null;
+                }    		
     	}) : null;
 
         const renderProducts = products.list ? products.list.map((products, index) => {
