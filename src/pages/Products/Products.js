@@ -28,14 +28,14 @@ class Products extends Component {
 
 		const renderProducts = products.list ? products.list.map((prod, index) => {
 			return (
-				<div key={index} class="card border-success mb-3">
-					<img class='card-img-top' src={prod.img} stlye={{ width: '200px', height: '150px' }} />
-					<div class='card-body text center'>
-						<h3 class='card-title'>{prod.name}  ${prod.price}</h3>
+				<div key={index} className="card border-success mb-3">
+					<img className='card-img-top' src={prod.img} stlye={{ width: '200px', height: '150px' }} />
+					<div className='card-body text center'>
+						<h3 className='card-title'>{prod.name}  ${prod.price}</h3>
 						<p>{prod.description} <br /><h6>Stats: {prod.stat}</h6> <br />
 						</p>
-						<div class="card-footer bg-transparent border-success">
-							<button class="btn btn-info" onClick={() => {
+						<div className="card-footer bg-transparent border-success">
+							<button className="btn btn-info" onClick={() => {
 								this.addProduct(prod.name, prod.price, prod.img);
 							}}>Agregar al carrito</button>
 						</div>
@@ -46,19 +46,23 @@ class Products extends Component {
 
 		const orders = shop.orders.length ? shop.orders.map((product, index) => {
 			return (
-				<div key={index}><img height={50} title={product.name} src={product.img} /> ${product.price}<button className="btn btn-warning" onClick={() => { this.removeProduct(index) }}>quitar</button></div>
+				<div key={index}><img height={50} title={product.name} src={product.img} /> ${product.price}<button classNameName="btn btn-warning" onClick={() => { this.removeProduct(index) }}>quitar</button></div>
 			);
 		}) : <p>No hay productos en el carrito</p>;
 		return (
 			<div>
-				<div class='card-deck'>
+				<div className='card-deck'>
 					{renderProducts}
 				</div>
 				<h1>Carrito</h1>
 				{orders}
-				<button class="btn btn-danger" onClick={() => { this.removeAllProduct(); }}> Quitar Todo </button>
-				<button class="btn btn-success" onClick={() => alert('En este momento no estamos recibiendo pedidos')}>Pagar ${shop.total}</button>
+				<button className="btn btn-danger" onClick={() => { this.removeAllProduct(); }}> Quitar Todo </button>
+				<button className="btn btn-success" onClick={() => alert('En este momento no estamos recibiendo pedidos')}>Pagar ${shop.total}</button>
+				<div>
+					<button className="btn btn-danger" onClick={() => alert('Estoy usando otra version para hacer que ande el carousel, hasta solucionarlo esto es lo que tengo :(')}>Por que se ve tan feo????</button>
+				</div>
 			</div>
+
 		);
 
 	}
